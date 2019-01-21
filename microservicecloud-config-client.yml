@@ -1,0 +1,30 @@
+﻿spring:
+  profiles:
+    active:
+    - dev
+---
+#选取得是dev分支得,那么端口号就是8201,这里只设置了一个注册中心,没有集群
+server: 
+  port: 8201 
+spring:
+  profiles: dev
+  application: 
+    name: microservicecloud-config-client
+eureka: 
+  client: 
+    service-url: 
+      defaultZone: http://eureka-dev.com:7001/eureka/   
+---
+#选取得是test分支得,那么端口号就是8202,这里只设置了一个注册中心,没有集群
+server: 
+  port: 8202 
+spring:
+  profiles: test
+  application: 
+    name: microservicecloud-config-client
+eureka: 
+  client: 
+    service-url: 
+      defaultZone: http://eureka-test.com:7001/eureka/
+ 
+
